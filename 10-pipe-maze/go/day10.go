@@ -97,15 +97,21 @@ func step(i int, j int, dir uint8) (i_prime int, j_prime int, revDir uint8) {
 func traceLoop(maze Maze, i_0 int, j_0 int) []Coords {
 	path := make([]Coords, 0)
 
-	i, j := i_0, j_0
+	// Track the direction from which we came in the previous step.
+	// Initially, this is 0 as we haven't moved from our start position yet.
 	revDir := uint8(0)
+	i, j := i_0, j_0
 
 	for {
 		path = append(path, Coords{i, j})
 
+		// Get connecting directions for the current cell, then zero out the
+		// bits (single bit, actually) that represent the direction that would
+		// reverse our previous step; thus forcing us forward along the loop.
 		dir := connections[maze[i][j]] & ^revDir
 		i, j, revDir = step(i, j, dir)
 
+		// Finish once we arrive back at the starting point.
 		if i == i_0 && j == j_0 {
 			return path
 		}
