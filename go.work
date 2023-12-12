@@ -4,4 +4,5 @@ use (
 	./01-trebuchet/go
 	./02-cube-conundrum/go
 	./05-almanac/go
+	./10-pipe-maze/go
 )
