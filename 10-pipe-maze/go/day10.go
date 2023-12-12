@@ -44,4 +44,6 @@ func main() {
 
 	i_0, j_0 := findStartPos(maze)
 	fmt.Println(i_0, j_0, connections['-'])
+
+	// TODO: Implementation pending
 }
