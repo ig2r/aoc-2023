@@ -1,0 +1,7 @@
+go 1.21.3
+
+use (
+	./01-trebuchet/go
+	./02-cube-conundrum/go
+	./05-almanac/go
+)
